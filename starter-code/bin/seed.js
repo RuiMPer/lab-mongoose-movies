@@ -31,5 +31,4 @@ Celebrity.create(celebrity, (err) => {
 		throw err;
 	}
 	console.log(`Created ${celebrity.length} celebrities`);
-	mongoose.connection.close();
 });
