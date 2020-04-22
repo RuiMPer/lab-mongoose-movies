@@ -19,13 +19,17 @@ router.get("/celebrities/new", (req, res) => {
 	res.render("celebrities/new-celebrity")
 })
 
-router.post("celebrities/new-celebrity", (req, res) => {
+router.get("celebrities/create", (req,res) => {
+	res.render("new-celebrity")
+})
+
+router.post("celebrities/new", (req, res) => {
 	const { name, occupation, catchPhrase } = req.body
 
 	const newCelebrity = new Celebrity({ name, occupation, catchPhrase })
 
 	newCelebrity.save()
-		.then(celeb => {
+		.then(() => {
 			res.redirect("/celebrities")
 		}).catch((err) => {
 			console.log(err)
